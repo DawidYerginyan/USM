@@ -28,6 +28,7 @@ packages/
 x64/
 x86/
 build/
+dist/
 bld/
 [Bb]in/
 [Oo]bj/

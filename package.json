@@ -14,6 +14,7 @@
   ],
   "category": "unity",
   "scripts": {
-    "build": "dotnet build -o ./dist -f netstandard2.0 -c Release"
+    "build": "scripts/build.sh",
+    "deploy": "scripts/deploy.sh"
   }
 }
