@@ -12,5 +12,8 @@
     "extensions",
     "persistance"
   ],
-  "category": "unity"
+  "category": "unity",
+  "scripts": {
+    "build": "dotnet build -o ./dist -f netstandard2.0 -c Release"
+  }
 }
