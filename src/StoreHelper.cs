@@ -1,6 +1,6 @@
 namespace USM
 {
-  public static class StoreHelper
+  public static partial class StoreHelper
   {
     public static void createStore() { }
     public static void provideStore() {  }
@@ -9,8 +9,9 @@ namespace USM
     public static void createReducer() { }
     public static void combineReducers() { }
 
-    public static void createAction() { }
-
-    public static void createSelector() { }
+    public static Action<T> createAction<T>(string type, T payload)
+    {
+      return new Action<T>(type, payload);
+    }
   }
 }
