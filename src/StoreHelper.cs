@@ -8,10 +8,5 @@ namespace USM
 
     public static void createReducer() { }
     public static void combineReducers() { }
-
-    public static Action<T> createAction<T>(string type, T payload)
-    {
-      return new Action<T>(type, payload);
-    }
   }
 }
