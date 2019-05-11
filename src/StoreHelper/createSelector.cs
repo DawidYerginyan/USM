@@ -30,10 +30,38 @@ namespace USM
     }
 
     public static Func<I, R> createSelector<I, R, T1>(
-        Func<I, T1> selector1,
-        Func<T1, R> combine)
+      Func<I, T1> selector1,
+      Func<T1, R> combine
+    )
     {
-      return memoize<I, R>(state => combine(selector1(state)));
+      return memoize<I, R>(state => combine(
+        selector1(state)
+      ));
+    }
+
+    public static Func<I, R> createSelector<I, R, T1, T2>(
+        Func<I, T1> selector1,
+        Func<I, T2> selector2,
+        Func<T1, T2, R> combine)
+    {
+      return memoize<I, R>(state => combine(
+        selector1(state),
+        selector2(state)
+      ));
+    }
+
+    public static Func<I, R> createSelector<I, R, T1, T2, T3>(
+      Func<I, T1> selector1,
+      Func<I, T2> selector2,
+      Func<I, T3> selector3,
+      Func<T1, T2, T3, R> combine
+    )
+    {
+      return memoize<I, R>(state => combine(
+        selector1(state),
+        selector2(state),
+        selector3(state)
+      ));
     }
   }
 }
