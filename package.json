@@ -1,7 +1,7 @@
 {
   "name": "com.usm",
   "displayName": "Unity State Manager",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "unity": "2019.1",
   "description": "Custom state management library allowing centralized state persistance across the game using unidirectional data flow. State subscribing possible through Reactive Extensions (Rx.NET) and Unity MonoBehaviour bindings.",
   "keywords": [
@@ -17,6 +17,15 @@
     "build": "scripts/build.sh",
     "deploy": "scripts/deploy.sh",
     "restore": "dotnet restore",
-    "purge": "scripts/purge.sh"
+    "purge": "scripts/purge.sh",
+    "bump": "packages/dotnet-version --project-file=USM.csproj --skip-vcs patch && yarn version --no-git-tag-version --patch && git add package.json USM.csproj"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn bump"
+    }
+  },
+  "devDependencies": {
+    "husky": "^2.2.0"
   }
 }

@@ -17,8 +17,9 @@ nupkg/
 *.userosscache
 *.sln.docstates
 
-# NuGet packages
+# packages
 packages/
+node_modules/
 
 # Build results
 [Dd]ebug/
