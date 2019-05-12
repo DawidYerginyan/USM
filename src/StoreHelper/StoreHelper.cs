@@ -1,8 +1,8 @@
 namespace USM
 {
-  public static partial class StoreHelper
+  public static partial class StoreHelper<State>
   {
-    public static void createStore() { }
+    private static Store<State> store;
     public static void provideStore() {  }
     public static void applyMiddleware() { }
 
