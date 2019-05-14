@@ -44,5 +44,145 @@ namespace USM
 
       return combineHandler(handlers);
     }
+
+    public static Reducer<State> combineReducers<T, T2, T3>(
+      (Expression<Func<State, T>>, Reducer<T>) composerA,
+      (Expression<Func<State, T2>>, Reducer<T2>) composerB,
+      (Expression<Func<State, T3>>, Reducer<T3>) composerC
+    )
+    {
+      List<(FieldInfo, Delegate)> handlers = new List<(FieldInfo, Delegate)>();
+
+      handlers.Add((
+        (FieldInfo) (composerA.Item1.Body as MemberExpression).Member,
+        composerA.Item2
+      ));
+
+      handlers.Add((
+        (FieldInfo) (composerB.Item1.Body as MemberExpression).Member,
+        composerB.Item2
+      ));
+
+      handlers.Add((
+        (FieldInfo) (composerC.Item1.Body as MemberExpression).Member,
+        composerC.Item2
+      ));
+
+      return combineHandler(handlers);
+    }
+
+    public static Reducer<State> combineReducers<T, T2, T3, T4>(
+      (Expression<Func<State, T>>, Reducer<T>) composerA,
+      (Expression<Func<State, T2>>, Reducer<T2>) composerB,
+      (Expression<Func<State, T3>>, Reducer<T3>) composerC,
+      (Expression<Func<State, T4>>, Reducer<T4>) composerD
+    )
+    {
+      List<(FieldInfo, Delegate)> handlers = new List<(FieldInfo, Delegate)>();
+
+      handlers.Add((
+        (FieldInfo) (composerA.Item1.Body as MemberExpression).Member,
+        composerA.Item2
+      ));
+
+      handlers.Add((
+        (FieldInfo) (composerB.Item1.Body as MemberExpression).Member,
+        composerB.Item2
+      ));
+
+      handlers.Add((
+        (FieldInfo) (composerC.Item1.Body as MemberExpression).Member,
+        composerC.Item2
+      ));
+
+      handlers.Add((
+        (FieldInfo) (composerD.Item1.Body as MemberExpression).Member,
+        composerD.Item2
+      ));
+
+      return combineHandler(handlers);
+    }
+
+    public static Reducer<State> combineReducers<T, T2, T3, T4, T5>(
+      (Expression<Func<State, T>>, Reducer<T>) composerA,
+      (Expression<Func<State, T2>>, Reducer<T2>) composerB,
+      (Expression<Func<State, T3>>, Reducer<T3>) composerC,
+      (Expression<Func<State, T4>>, Reducer<T4>) composerD,
+      (Expression<Func<State, T5>>, Reducer<T5>) composerE
+    )
+    {
+      List<(FieldInfo, Delegate)> handlers = new List<(FieldInfo, Delegate)>();
+
+      handlers.Add((
+        (FieldInfo) (composerA.Item1.Body as MemberExpression).Member,
+        composerA.Item2
+      ));
+
+      handlers.Add((
+        (FieldInfo) (composerB.Item1.Body as MemberExpression).Member,
+        composerB.Item2
+      ));
+
+      handlers.Add((
+        (FieldInfo) (composerC.Item1.Body as MemberExpression).Member,
+        composerC.Item2
+      ));
+
+      handlers.Add((
+        (FieldInfo) (composerD.Item1.Body as MemberExpression).Member,
+        composerD.Item2
+      ));
+
+      handlers.Add((
+        (FieldInfo) (composerE.Item1.Body as MemberExpression).Member,
+        composerE.Item2
+      ));
+
+      return combineHandler(handlers);
+    }
+
+    public static Reducer<State> combineReducers<T, T2, T3, T4, T5, T6>(
+      (Expression<Func<State, T>>, Reducer<T>) composerA,
+      (Expression<Func<State, T2>>, Reducer<T2>) composerB,
+      (Expression<Func<State, T3>>, Reducer<T3>) composerC,
+      (Expression<Func<State, T4>>, Reducer<T4>) composerD,
+      (Expression<Func<State, T5>>, Reducer<T5>) composerE,
+      (Expression<Func<State, T6>>, Reducer<T6>) composerF
+    )
+    {
+      List<(FieldInfo, Delegate)> handlers = new List<(FieldInfo, Delegate)>();
+
+      handlers.Add((
+        (FieldInfo) (composerA.Item1.Body as MemberExpression).Member,
+        composerA.Item2
+      ));
+
+      handlers.Add((
+        (FieldInfo) (composerB.Item1.Body as MemberExpression).Member,
+        composerB.Item2
+      ));
+
+      handlers.Add((
+        (FieldInfo) (composerC.Item1.Body as MemberExpression).Member,
+        composerC.Item2
+      ));
+
+      handlers.Add((
+        (FieldInfo) (composerD.Item1.Body as MemberExpression).Member,
+        composerD.Item2
+      ));
+
+      handlers.Add((
+        (FieldInfo) (composerE.Item1.Body as MemberExpression).Member,
+        composerE.Item2
+      ));
+
+      handlers.Add((
+        (FieldInfo) (composerF.Item1.Body as MemberExpression).Member,
+        composerF.Item2
+      ));
+
+      return combineHandler(handlers);
+    }
   }
 }
