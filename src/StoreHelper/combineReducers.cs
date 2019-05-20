@@ -11,17 +11,17 @@ namespace USM
     {
       return (State state, Object action) =>
       {
-        var result = state;
-        foreach (var handler in handlers)
+        State newState = state;
+        foreach (var (field, reducer) in handlers)
         {
-          var prevState = handler.Item1.GetValue(state);
-          var newState = handler.Item2.DynamicInvoke(prevState, action);
+          var prevState = field.GetValue(state);
+          var reducedState = reducer.DynamicInvoke(prevState, action);
 
-          object boxer = result;
-          handler.Item1.SetValue(boxer, newState);
-          result = (State) boxer;
+          Object box = newState;
+          field.SetValue(box, reducedState);
+          newState = (State) box;
         }
-        return result;
+        return newState;
       };
     }
 
