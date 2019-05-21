@@ -1,7 +1,7 @@
 {
   "name": "com.usm",
   "displayName": "Unity State Manager",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "unity": "2019.1",
   "description": "Custom state management library allowing centralized state persistance across the game using unidirectional data flow. State subscribing possible through Reactive Extensions (Rx.NET) and Unity MonoBehaviour bindings.",
   "keywords": [
@@ -22,7 +22,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn bump"
+      "pre-commit": "yarn bump",
+      "post-update": "yarn deploy"
     }
   },
   "devDependencies": {
