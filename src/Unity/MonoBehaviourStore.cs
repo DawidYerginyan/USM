@@ -6,16 +6,14 @@ namespace USM.Unity
 {
   public class MonoBehaviourStore<State> : Singleton<MonoBehaviourStore<State>>
   {
-    [SerializeField]
-    private bool debug = false;
-    Store<State> store;
+    protected Store<State> store;
 
     public State getState()
     {
       return store.getState();
     }
 
-    public void dispatch(object action)
+    public void dispatch(System.Object action)
     {
       store.dispatch(action);
     }
@@ -25,12 +23,6 @@ namespace USM.Unity
       return store.subscribe(observer);
     }
 
-    protected override void OnAwake()
-    {
-      if (debug)
-      {
-        USMDevTools.open();
-      }
-    }
+    protected override void OnAwake() { }
   }
 }
