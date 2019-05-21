@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Reactive.Subjects;
+using Newtonsoft.Json;
 
 using USM.Middleware;
 
@@ -40,6 +41,11 @@ namespace USM
       return emitter.Subscribe(observer);
     }
 
+    public string serialize()
+    {
+      return JsonConvert.SerializeObject(state, Formatting.Indented);
+    }
+
     public void applyMiddleware(params Middleware<State>[] middlewares)
     {
       middleware = middlewares
@@ -63,8 +69,13 @@ namespace USM
 
     private void execute(Object action)
     {
+      State prevState = state;
       reduce(action);
-      emit();
+
+      if (!state.Equals(prevState))
+      {
+        emit();
+      }
     }
   }
 }
