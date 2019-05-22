@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace USM.Unity
 {
-  public class MonoBehaviourStore<State> : Singleton<MonoBehaviourStore<State>>
+  public class MonoBehaviourStore<State, T> : Singleton<T> where T : MonoBehaviour
   {
     protected Store<State> store;
 
