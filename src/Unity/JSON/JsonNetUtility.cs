@@ -18,8 +18,11 @@ namespace USM.Unity.Json
       Converters = CreateConverters()
     };
 
-    [RuntimeInitializeOnLoadMethod]
+#if UNITY_EDITOR
     [UnityEditor.InitializeOnLoadMethod]
+#else
+    [UnityEngine.RuntimeInitializeOnLoadMethod]
+#endif
     private static void Initialize()
     {
       if (JsonConvert.DefaultSettings == null)
