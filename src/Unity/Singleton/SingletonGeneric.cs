@@ -7,7 +7,7 @@ namespace USM.Unity
     [SerializeField]
     private bool persist = true;
     private static T instance;
-    private static readonly object padlock = new object();
+    private static readonly Object padlock = new Object();
 
     public static T getInstance()
     {

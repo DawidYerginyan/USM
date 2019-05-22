@@ -53,7 +53,7 @@ namespace USM.Unity.Json
       );
     }
 
-    private static object GetValue(MemberInfo member, object target)
+    private static Object GetValue(MemberInfo member, Object target)
     {
       if (member is FieldInfo)
       {
@@ -63,7 +63,7 @@ namespace USM.Unity.Json
       return (member as PropertyInfo).GetValue(target, null);
     }
 
-    private static void SetValue(MemberInfo member, object target, object value)
+    private static void SetValue(MemberInfo member, Object target, Object value)
     {
       if (member is FieldInfo)
       {
@@ -126,10 +126,10 @@ namespace USM.Unity.Json
       return typeof(T) == objectType;
     }
 
-    public override object ReadJson(
+    public override Object ReadJson(
       JsonReader reader,
       Type objectType,
-      object existingValue,
+      Object existingValue,
       JsonSerializer serializer
     )
     {
@@ -155,7 +155,7 @@ namespace USM.Unity.Json
 
     public override void WriteJson(
       JsonWriter writer,
-      object value,
+      Object value,
       JsonSerializer serializer
     )
     {
