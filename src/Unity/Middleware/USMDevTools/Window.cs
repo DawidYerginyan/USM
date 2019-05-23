@@ -20,5 +20,10 @@ namespace USM.Unity.Middleware
           break;
       }
     }
+
+    public void OnInspectorUpdate()
+    {
+      Repaint();
+    }
   }
 }
