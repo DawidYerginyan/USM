@@ -15,7 +15,7 @@ namespace USM.Unity
     {
       if (store == null)
       {
-        throw new NullReferenceException("No store in the store provider. Please register the store first through: StoreProvider<T>.registerStore(store). Probably missing #create() in your GameStore class.");
+        throw new NullReferenceException("No store in the store provider. Probably due to missing registration or invalid script execution order. Please register the store first through: StoreProvider<T>.registerStore(store) and check if #create() in your GameStore class is defined. Otherwise, fix the script execution order.");
       }
 
       return store;
