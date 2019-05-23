@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace USM.Unity
 {
-  public class MonoBehaviourStore<State, T> : Singleton<T> where T : MonoBehaviour
+  public abstract class MonoBehaviourStore<State> : Singleton<MonoBehaviourStore<State>>
   {
     protected Store<State> store;
 
@@ -23,6 +23,12 @@ namespace USM.Unity
       return store.subscribe(observer);
     }
 
-    protected override void OnAwake() { }
+    protected abstract Store<State> create();
+
+    protected override void OnAwake()
+    {
+      store = this.create();
+      StoreProvider<State>.registerStore(getInstance());
+    }
   }
 }

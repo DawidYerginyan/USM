@@ -4,14 +4,14 @@ using System.Reactive;
 
 namespace USM.Unity
 {
-  public abstract class Component<State, T> : MonoBehaviour where T : MonoBehaviourStore<State, T>
+  public abstract class Component<State> : MonoBehaviour
   {
-    protected T store;
+    protected MonoBehaviourStore<State> store;
     private IObserver<State> observer;
 
     protected virtual void Awake()
     {
-      store = Singleton<T>.getInstance();
+      store = StoreProvider<State>.provideStore();
       observer = Observer.Create<State>(Render);
       store.subscribe(observer);
     }
