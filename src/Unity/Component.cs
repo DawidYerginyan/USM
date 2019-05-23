@@ -6,7 +6,7 @@ namespace USM.Unity
 {
   public abstract class Component<State> : MonoBehaviour
   {
-    protected MonoBehaviourStore<State> store;
+    private MonoBehaviourStore<State> store;
     private IObserver<State> observer;
 
     protected virtual void Awake()
@@ -14,6 +14,11 @@ namespace USM.Unity
       store = StoreProvider<State>.provideStore();
       observer = Observer.Create<State>(Render);
       store.subscribe(observer);
+    }
+
+    protected void action(System.Object action)
+    {
+      store.dispatch(action);
     }
 
     protected abstract void Render(State state);
