@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace USM
 {
-  public static partial class StoreHelper<State>
+  public static partial class StoreHelper<State> where State : struct
   {
     private static Reducer<State> combineHandler(List<(FieldInfo, Delegate)> handlers)
     {

@@ -5,7 +5,7 @@ using USM.Middleware;
 
 namespace USM.Unity.Middleware
 {
-  public static partial class Persist<State>
+  public static partial class Persist<State> where State : struct
   {
     private static Store<State> store;
 

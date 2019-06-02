@@ -11,7 +11,7 @@ namespace USM
 {
   public sealed class INIT_STORE { }
 
-  public class Store<State>
+  public class Store<State> where State : struct
   {
     State state;
     MiddlewareDispatcher middleware;

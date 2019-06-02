@@ -2,7 +2,7 @@ using USM.Middleware;
 
 namespace USM
 {
-  public static partial class StoreHelper<State>
+  public static partial class StoreHelper<State> where State : struct
   {
     public static Store<State> createStore(Reducer<State> rootReducer) {
       store = new Store<State>(rootReducer);

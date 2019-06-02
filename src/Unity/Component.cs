@@ -4,7 +4,7 @@ using System.Reactive;
 
 namespace USM.Unity
 {
-  public abstract class Component<State> : MonoBehaviour
+  public abstract class Component<State> : MonoBehaviour where State : struct
   {
     private MonoBehaviourStore<State> store;
     private IObserver<State> observer;

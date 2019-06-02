@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace USM.Unity
 {
-  public static class StoreProvider<State>
+  public static class StoreProvider<State> where State : struct
   {
     private static MonoBehaviourStore<State> store;
     public static void registerStore(MonoBehaviourStore<State> store)

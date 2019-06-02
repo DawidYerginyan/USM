@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace USM.Unity
 {
-  public abstract class MonoBehaviourStore<State> : Singleton<MonoBehaviourStore<State>>
+  public abstract class MonoBehaviourStore<State> : Singleton<MonoBehaviourStore<State>> where State : struct
   {
     protected Store<State> store;
 
