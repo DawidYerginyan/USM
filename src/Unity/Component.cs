@@ -4,11 +4,19 @@ using System.Reactive;
 
 namespace USM.Unity
 {
-  public abstract class Component<State> : MonoBehaviour where State : struct
+  public abstract class ComponentBase<State> : MonoBehaviour where State : struct
   {
-    private MonoBehaviourStore<State> store;
-    private IObserver<State> observer;
+    protected MonoBehaviourStore<State> store;
+    protected IObserver<State> observer;
 
+    protected void action(System.Object action)
+    {
+      store.dispatch(action);
+    }
+  }
+
+  public abstract class Component<State> : ComponentBase<State> where State : struct
+  {
     protected virtual void Awake()
     {
       store = StoreProvider<State>.provideStore();
@@ -16,11 +24,23 @@ namespace USM.Unity
       store.subscribe(observer);
     }
 
-    protected void action(System.Object action)
+    protected abstract void Render(State state);
+  }
+
+  public abstract class Component<Props, State> : ComponentBase<State>
+    where State : struct
+    where Props : struct
+  {
+    protected virtual void Awake()
     {
-      store.dispatch(action);
+      store = StoreProvider<State>.provideStore();
+      Action<State> compose = (State state) => Render(mapStateToProps(state));
+      observer = Observer.Create<State>(compose);
+      store.subscribe(observer);
     }
 
-    protected abstract void Render(State state);
+    protected abstract Props mapStateToProps(State state);
+
+    protected abstract void Render(Props props);
   }
 }
